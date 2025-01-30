@@ -1,0 +1,56 @@
+.game {
+  text-align: center;
+
+  h1 {
+    color: #ec008c;
+  }
+
+  p {
+    b {
+      font-family: monospace;
+    }
+  }
+}
+
+.masked {
+  margin: 1rem auto;
+  font-family: monospace;
+  font-size: 4rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 43rem;
+  margin: 0 auto;
+
+  button {
+    width: 3rem;
+    height: 3rem;
+    margin: 0.125rem;
+    font-size: 2rem;
+    line-height: 1;
+    background: #eee;
+    border: 0;
+    border-radius: 0.25rem;
+
+    &:disabled {
+      background: none;
+    }
+  }
+}
+
+.play-again-button {
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #fff;
+  background: #ec008c;
+  border: 0;
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,41 @@
+$white: #fff;
+$black: #282c34;
+$blue: #61dafb;
+
+.app {
+  text-align: center;
+
+  &__logo {
+    height: 40vmin;
+    pointer-events: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: app-logo-spin infinite 20s linear;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: $white;
+    background-color: $black;
+  }
+
+  &__link {
+    color: $blue;
+  }
+}
+
+@keyframes app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

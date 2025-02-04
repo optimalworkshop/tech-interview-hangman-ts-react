@@ -20,12 +20,12 @@ export default function Game({ word, lives, onPlayAgainClicked }: GameProps) {
       guesses.has(letter) || LETTERS.indexOf(letter.toUpperCase()) === -1 ? letter : '_'
     );
 
-  const guess = useCallback((letter: string) => {
+  const guess = (letter: string) => {
     if (word.indexOf(letter.toLowerCase()) === -1) {
       setActualLives(actualLives - 1);
     }
     addGuess(letter.toLowerCase());
-  }, [actualLives, word]);
+  };
 
   const gameIsWon = word
     .split('')

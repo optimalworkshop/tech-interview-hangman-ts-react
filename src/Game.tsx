@@ -43,7 +43,6 @@ export default function Game({ word, lives, onPlayAgainClicked }: GameProps) {
       }
     };
     window.addEventListener('keypress', keyPressed);
-    return () => window.removeEventListener('keypress', keyPressed);
   }, [guess]);
 
   return (

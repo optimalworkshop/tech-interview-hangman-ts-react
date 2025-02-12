@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <Game key={gameId} word={word} lives={10} onPlayAgainClicked={playAgain} />
+      <Game id={gameId} word={word} lives={10} onPlayAgainClicked={playAgain} />
     </div>
   );
 }

@@ -4,15 +4,25 @@ import './Game.scss';
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 interface GameProps {
+  id: string;
   word: string;
   lives: number;
   onPlayAgainClicked: () => void;
 }
 
-export default function Game({ word, lives, onPlayAgainClicked }: GameProps) {
+export default function Game({ id, word, lives, onPlayAgainClicked }: GameProps) {
   const [actualLives, setActualLives] = useState(lives);
 
-  const [guesses, addGuess] = useReducer((set: Set<string>, letter: string) => new Set<string>(set).add(letter), new Set<string>());
+  const [guesses, addGuess] = useReducer(
+    (set: Set<string>, letter: string) => {
+      if (letter === 'RESET') {
+        return new Set<string>();
+      }
+
+      return new Set<string>(set).add(letter)
+    },
+    new Set<string>()
+  );
 
   const masked = word
     .split('')
@@ -44,6 +54,11 @@ export default function Game({ word, lives, onPlayAgainClicked }: GameProps) {
     };
     window.addEventListener('keypress', keyPressed);
   }, [guess]);
+
+  useEffect(() => {
+    setActualLives(lives);
+    addGuess('RESET');
+  }, [lives, id])
 
   return (
     <div className="game">
